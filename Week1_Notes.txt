@@ -11,21 +11,18 @@ Get the setup file:
 % cp ~pikaia/setup .   make sure to type the "."
 % tcsh setup
 
+Lets get some files to work with:
+
+% git clone https://github.com/UWashington-Astro300/Astro300.git
+
 % cd Astro300          change directory
 % pwd                  Show the current directory path.
 
-The command "cd" always takes you to your home directory.
-
-Lets get some files to work with:
-
-% wget http://www.astro.washington.edu/smith/Astro300/Wtr2015/Data1.tar.gz
-% tar zxfv Data1.tar.gz
-
-% ls                 list the files in a directory
+% ls                   list the files in a directory
 
 % cat BrightStars.csv
-% more BrightStars.csv                          "q" to quit
-% less BrightStars.csv                          "q" to quit
+% more BrightStars.csv                  "q" to quit
+% less BrightStars.csv                  "q" to quit
 
 % cp BrightStars.csv junk.dat           Copy files
 % mv junk.dat junque.dat                Rename files
@@ -53,7 +50,7 @@ Ctrl+w erase one word on current line
 Ctrl+u erase whole line
 
 [TAB] Completion
-% less E[TAB]      Hit [TAB] again to show all options
+% less R[TAB]      Hit [TAB] again to show all options
 
 [UP] [DOWN] arrows - command history
 
