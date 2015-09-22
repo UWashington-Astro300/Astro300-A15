@@ -23,11 +23,11 @@ Lets get some files to work with:
 
 % ls                 list the files in a directory
 
-% cat BStars.csv
-% more BStars.csv                          "q" to quit
-% less BStars.csv                          "q" to quit
+% cat BrightStars.csv
+% more BrightStars.csv                          "q" to quit
+% less BrightStars.csv                          "q" to quit
 
-% cp BStars.csv junk.dat            Copy files
+% cp BrightStars.csv junk.dat           Copy files
 % mv junk.dat junque.dat                Rename files
 % rm junque.dat                         Delete file (NO RECOVERY!)
 
@@ -38,8 +38,8 @@ wildcards (*) and (?)
 * - Matches ANY (0 or more) character or characters in a filename.
 ? - Matches ANY ONE character in a filename.
 
-% ls B*.csv        will find BStars.csv
-% ls B?.csv        will NOT find BStars.csv
+% ls B*.csv        will find BrightStars.csv
+% ls B?.csv        will NOT find BrightStars.csv
 
 Be very careful with "*".  It can ruin your life!  For example "rm *"
 will wipe out all of your files in the current directory, no questions
@@ -66,30 +66,30 @@ Ctrl+u erase whole line
 
 Line Numbers
 
-% nl Key_BStars.txt          Shows line number
-% nl -ba Key_BStars.txt      including blank lines (more useful)
+% nl Raven.txt          Shows line number
+% nl -ba Raven.txt      including blank lines (more useful)
 
 ---------------------------------------------------------------------
 
 Chopping Streams (head and tail)
 
-% head BStars.csv            first 10 lines
-% tail BStars.csv            last 10 lines
+% head BrightStars.csv            first 10 lines
+% tail BrightStars.csv            last 10 lines
 
-% head -20 BStars.csv        first 20 lines
-% tail -20 BStars.csv        last 20 lines
+% head -20 BrightStars.csv        first 20 lines
+% tail -20 BrightStars.csv        last 20 lines
 
 ---------------------------------------------------------------------
 
 Diverting Streams (> and >>)
 
-% head -9 BStars.csv > small.dat    (>) crates file, overwriting old
+% head -9 BrightStars.csv > small.dat    (>) crates file, overwriting old
 % ls
 
-% wc BStars.csv		       number of lines, words, and bytes
+% wc BrightStars.csv		       number of lines, words, and bytes
 % wc small.dat
 
-% tail -11 BStars.csv >> small.dat    (>>) appends data to file
+% tail -11 BrightStars.csv >> small.dat    (>>) appends data to file
 
 % wc small.dat
 
@@ -152,6 +152,10 @@ Print all lines where the value of column 5 is between 3.0 and 4.0:
 Print all lines where the value of column 2 in NOT blank (0).
 
 % cat small.dat | grep -v '^\#' | awk -F, '{if ($2!="") print $0}'
+
+Print all lines where the value of column 2 contains "A" (anywhere in the column).
+
+% cat small.dat | grep -v '^\#' | awk -F, '{if ($2~/A/) print $0}'
 
 You can append '| wc' to the end of each of the above to get a count
 
