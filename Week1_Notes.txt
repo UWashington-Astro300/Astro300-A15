@@ -59,6 +59,8 @@ Ctrl+u erase whole line
 
 
 
+
+
 ---------------------------------------------------------------------
 
 Line Numbers
@@ -142,17 +144,25 @@ Print all lines where the value of column 4 > 0.0:
 
 % cat small.dat | grep -v '^\#' | awk -F, '{if ($4 > 0.0) print $0}'
 
+
+
 Print all lines where the value of column 5 is between 3.0 and 4.0: 
 
 % cat small.dat | grep -v '^\#' | awk -F, '{if ($5>3.0 && $5<4.0) print $0}'
+
+
 
 Print all lines where the value of column 2 in NOT blank (0).
 
 % cat small.dat | grep -v '^\#' | awk -F, '{if ($2!="") print $0}'
 
+
+
 Print all lines where the value of column 2 contains "A" (anywhere in the column).
 
 % cat small.dat | grep -v '^\#' | awk -F, '{if ($2~/A/) print $0}'
+
+
 
 You can append '| wc' to the end of each of the above to get a count
 
