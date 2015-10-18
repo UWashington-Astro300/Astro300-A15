@@ -1,0 +1,69 @@
+#!/usr/bin/python
+
+import sys, math
+from math import *
+
+if (len(sys.argv) == 2):
+    MJD = int(sys.argv[1])
+elif (len(sys.argv) == 4):
+    M = int(sys.argv[1])
+    D = int(sys.argv[2])
+    Y = int(sys.argv[3])
+else:
+    print "Nice Try"; sys.exit(1)
+
+def ToDMY (MJD):
+
+    # Convert MJD to D,M,Y
+    # Shamelessly stolen from 
+    # http://en.wikipedia.org/wiki/Julian_date
+
+    J = int(ceil(2400000.5 + MJD))
+    j = J + 32044
+    g = j / 146097
+    dg = j % 146097
+    c = (dg / 36524 + 1) * 3 / 4
+    dc = dg - c * 36524
+    b = dc / 1461
+    db = dc % 1461
+    a = (db / 365 + 1) * 3 / 4
+    da = db - a * 365
+    y = g * 400 + c * 100 + b * 4 + a
+    m = (da * 5 + 308) / 153 - 2
+    d = da - (m + 4) * 153 / 5 + 122
+    Y = y - 4800 + (m + 2) / 12
+    M = (m + 2) % 12 + 1
+    D = d + 1
+
+    return [D,M,Y]
+
+
+def ToMJD (D,M,Y):
+
+    # Convert D,M,Y to MJD
+    # Shamelessly stolen from 
+    # http://en.wikipedia.org/wiki/Julian_date
+
+    M = float(M)
+    D = float(D)
+    Y = float(Y)
+
+    a = floor((14 - M) / 12)
+    y = Y + 4800 - a
+    m = M + 12.0*a - 3.0
+
+    J = D + floor((153*m+2)/5) + (365*y) + floor(y/4) - floor(y/100) \
+        + floor(y/400) - 32045.5
+
+    MJD = int(J - 2400000.5)
+
+    return [J,MJD]
+ 
+
+if (len(sys.argv) == 2):
+    date = ToDMY(MJD)
+    print "MJD =",MJD," ---> Date: ",date[1],date[0],date[2]
+
+if (len(sys.argv) == 4):
+    date = ToMJD(D,M,Y)
+    print "Date: ",M,D,Y,"---> MJD =",date[1],"---> JD =",date[0]
