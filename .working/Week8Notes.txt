@@ -1,0 +1,120 @@
+-----------------------------------------------------------------------------
+Week 8 - LaTeX / BibTeX - Scientific Typesetting
+-----------------------------------------------------------------------------
+
+% cd Astro300
+% wget http://www.astro.washington.edu/smith/Astro300/Wtr2015/LATEX.tar
+% tar xmfv LATEX.tar
+
+-----------------------------------------------------------------------------
+simple.tex - A very minimal example
+-----------------------------------------------------------------------------
+
+\documentclass[12pt,letterpaper]{article}
+
+\begin{document}
+
+One of the main appeals of \LaTeX\ is that it is \textit{very} good at
+typesetting equations:
+
+\[
+a_n = \frac{1}{\pi}\int_{-\pi}^{\pi}s(x) \cos(nx)\,dx = 0, \quad n \ge
+0.
+\]
+
+\end{document}
+
+-----------------------------------------------------------------------------
+
+Most LaTeX commands are prefixed with a "\". For example \pi is the
+command to produce the lower case Greek letter pi.
+
+The characters  # $ % & ~ _ ^ \ { } are special characters in LaTeX. If
+you want to typeset them you need to put a \ in front of them. For
+example \$ will typeset the symbol $
+
+% - comment. Everything is ignored after a %
+$ - Math mode. Start and Stop math mode. $\pi$
+^ - Superscript in Math mode. $2^2$
+_ - Subscript in Math mode. $2_2$
+
+-----------------------------------------------------------------------------
+
+Processing your first LaTeX document:
+
+% pdflatex simple.tex			LaTeX the document
+% evince simple.pdf                     Look at the PDF file
+% acroread simple.pdf                   Look at the PDF file (adobe)
+
+simple.log simple.aux                   auxiliary files created by LaTeX
+     
+-----------------------------------------------------------------------------
+
+If you get an error running LaTeX, Typing "X" will generally get you
+back to the prompt:
+
+l.12                <----- This tells you the line of the error
+     
+? X
+
+-----------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------
+
+% gedit MyRefs.bib &
+
+Open the file "Example.tex" in another tab of your editor.
+
+-----------------------------------------------------------------------------
+
+Getting references from the Astrophysics Data System (ADS)
+
+http://adsabs.harvard.edu/abstract_service.html
+
+- Find a paper
+
+- click on "Bibtex entry for this abstract" (lower left)
+
+- copy and paste text (starting with "@" to last "}") into your "MyRefs.bib" file
+
+- the reference key is the thing after the first "{" at the 
+  top of the entry.  Should look something like "2006DPS....38.3703J"
+
+- reference the paper like: \cite{2006DPS....38.3703J}
+
+- If you do not "\cite" the reference in your paper it will not appear
+  in the bibliography
+
+-----------------------------------------------------------------------------
+
+Processing a manuscript with references.
+
+Example.tex	The LaTeX manuscript with references
+MyRefs.bib	List of BibTeX references (needs to be in same directory)
+
+% pdflatex Example.tex
+% bibtex Example            <----- NOTICE NO EXTENSION
+% pdflatex Example          <----- NOTICE NO EXTENSION 
+% pdflatex Example          <----- NOTICE NO EXTENSION 
+
+-----------------------------------------------------------------------------
+
+The supported images formats for pdflatex are: pdf, jpg, or png.
+
+You can convert any image to another format using 'convert':
+
+% convert bsg01.fits bsg01.png
+
+-----------------------------------------------------------------------------
+
+If you have a problem with references not working, try to remove all the
+file LaTeX created with the command "rmtex" and then retry latexit.
+
+% rmtex                removes all auxiliary files created by LaTeX
+
+-----------------------------------------------------------------------------
+
+
+
