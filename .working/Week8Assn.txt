@@ -44,11 +44,12 @@ T(M    ,theta)  =  ------   |      |    ---------------  dM  dtheta  \/ Z
       
 Create a PDF file (i.e. TobySmith.pdf)
 
-Copy it to the Homework directory: DO NOT email it to me!
+Copy it to the Homework directory:
 
+% mv Latex300.pdf FirstLast.pdf
 % chmod 644 FirstLast.pdf
 % cp FirstLast.pdf ~pikaia/HOMEWORK/
 
 -----------------------------------------------------------------------------
-Deadline: Tuesday March 3 - 5pm (-5 pts for each 30 minutes late)
+Deadline: Tuesday Dec 1 - 5pm (-5 pts for each 30 minutes late)
 -----------------------------------------------------------------------------
