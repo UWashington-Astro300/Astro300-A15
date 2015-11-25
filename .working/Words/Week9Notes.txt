@@ -1,0 +1,126 @@
+--------------------------------------------------------------------
+Week 9 - Messing with words - Regular Expressions, GREP and SED
+
+% cd Astro300
+% wget http://www.astro.washington.edu/smith/Astro300/Wtr2015/Words.tar
+% tar xmfv Words.tar
+--------------------------------------------------------------------
+
+Print WHOLE line in "file" where 'pattern' occurs:  % grep -E 'pattern' file
+
+% ./Week9.bash                          "play" this week's examples
+
+---- Normal Use ----
+
+% grep -E 'Sue' words.txt               all lines where 'Sue' occurs
+
+% grep -E -c 'Sue' words.txt            number of lines matched
+
+% grep -E -n 'Sue' words.txt            now with line numbers
+
+% grep -E -o 'Sue' words.txt            just print the match each on a separate line
+
+% grep -E -v 'Sue' words.txt            all lines where "Sue' does NOT occur
+
+---- Anchors ----
+
+% grep -E '^Sue' words.txt              lines that START with 'Sue'
+
+% grep -E 'Sue$' words.txt              lines that END with 'Sue'
+
+---- Special characters - ( ?  \  .  [  ]  ^  $ * ) ----
+
+% grep -E '*' words.txt                 not really what you expect
+
+% grep -E '\*' words.txt                Special characters must be "\"
+
+---- Quantifiers ----
+
+% grep -E 'a b. c' words.txt            .  = any 1 character
+
+% grep -E 'a b.* c' words.txt           * = 0 or more
+
+% grep -E 'a b.? c' words.txt           ? = 0 or 1
+
+% grep -E 'a b.+ c' words.txt           + = 1 or more
+
+% grep -E 'a b.{3} c' words.txt         {3} exactly 3
+
+% grep -E 'a b.{2,3} c' words.txt       {2,3} between 2 and 3
+
+---- Ranges [] ----
+
+% grep -E 'a b[a-z]{2} c' words.txt     [a-z] any lower case letter
+
+% grep -E 'a b[0-9]{2} c' words.txt     [0-9] any number
+
+% grep -E 'a b[0-9,a-z]{3} c' words.txt              any number or letter
+
+% grep -E '[0-9]{3}-[0-9]{4}' words.txt              Phone Numbers
+
+% grep -E '[0-9]{3}-[0-9]{2}-[0-9]{4}' words.txt     SSN
+
+
+
+---- Matches are greedy - They will match as much as possible ----
+
+% grep -E -o 'TH.*S' words.txt
+
+% grep -E -o 'TH[^S]*S' words.txt       [^S] everything that is NOT "S"
+
+% grep -E -o '<a.*>' words.txt          probably not what you want
+
+% grep -E -o '<a[^>]*>' words.txt       pick out the "anchor" tag
+
+---- Groupings () and | ----
+
+% grep -E 'Bob|Eve' words.txt           | = or
+
+% grep -E '(ba){2}' words.txt           The string 'ba' 2 times in a row
+
+% grep -E 'a b(1|a) c' words.txt        
+
+% grep -E '(From|Subject|Date):' words.txt      () groupings
+
+--------------------------------------------------------------------
+
+SED - Stream Editor
+
+--------------------------------------------------------------------
+
+% sed 's/Sue/*SUE*/g' words.txt   simple global subtitution (g = global)
+
+% sed 's/[0-9]/(&)/g' words.txt   sub with backreference "&"
+
+% sed '1,22d'                    deleting lines 
+
+% cat words.txt | tr A-Z a-z     quick UPPER/lowercase exchange
+
+% cat words.txt | tr Sa  XY      change all S to X and a to Y
+
+--------------------------------------------------------------------
+
+Getting Fancy - A little linguistics
+
+--------------------------------------------------------------------
+
+Making a letter frequency histogram 
+
+cat words.txt | tr A-Z a-z | grep -o -E '[a-z]' | sort | uniq -c -i | sort -n
+
+     ^               ^               ^              ^          ^         ^
+Start Stream   Lower case    each letter on a     sort   find number    sort
+                             different line              of unique 
+                                                         letters
+
+--------------------------------------------------------------------
+
+Making a word frequency histogram (4 letter words, Ignore case)
+
+cat words.txt | tr A-Z a-z | grep -o -E '\b\w{4}\b' | sort | uniq -c -i | sort -n
+
+     ^               ^               ^                  ^          ^         ^
+Start Stream   Lower case    each 4 letter word        sort   find number   sort
+                             on a different line              of unique 4
+                                                              letters words
+

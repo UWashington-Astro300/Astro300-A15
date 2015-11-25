@@ -1,0 +1,41 @@
+Sue     123-4567
+Bob     123-7890
+Eve     123-1029
+
+111-45-1234    Sue_
+123-77-2323    Bob_
+456-12-3456    Eve_
+
+SueA Sue01 SueB Sue02 SueC Sue03
+BobEveBobEveBobEve
+
+a b c
+a b1 c
+a ba c
+a b12 c
+a bab c
+a b123 c
+a baba c
+a b1c2 c
+
+Bob * Eve * Sue
+
+THIS is A test THIS is ONLY a TEST
+this IS a TEST this IS only A test
+this is a test this is only a test
+THIS IS A TEST THIS IS ONLY A TEST
+
+From: Bob
+Subject: Secret Message
+Date: Feb 20 2010
+
+<li><a href="http://www.python.org/"><span>Python</span></a></li>
+
+spam spam spam spam spam spam spam spam spam spam
+spam spam spam spam spam spam spam spam spam spam
+spam spam spam spam spam spam spam spam spam spam
+spam spam spam spam spam spam spam spam spam spam
+spam spam spam spam spam spam spam spam spam spam
+spam spam spam spam spam spam spam spam spam spam
+spam spam spam spam spam spam spam spam spam spam
+spam spam spam spam spam spam spam spam spam spam

@@ -1,0 +1,108 @@
+------------------------------------------------------------------------
+Week 9 Assignment - Messing with text
+------------------------------------------------------------------------
+
+Part I - Regex Golf is an exercise of trying to find the shortest
+regular expression that matches all strings in one given set, but does
+not match any of the strings in a different given set. Like golf, a
+lower score is better.
+
+For example, this is the content of the file "golf_00":
+
+one
+two
+three
+
+four
+five
+six
+
+The goal is to find a regex that will match the top set (one, two,
+three), but not match ANY of the bottom set (four, five, six).
+
+This will work:  grep -E 'one|two|three' golf_00
+
+But that regex took 13 characters - Not a good score
+
+This is better:  grep -E 't|n' golf_00
+
+That regex took 3 characters - A much better score.
+
+I have given you 9 holes to play (golf_01 .. golf_09).
+
+ - You can ONLY use the -E flag. No -v or -o flags allowed!
+ - They get harder as you go on. 
+ - Bonus points for the lowest score.
+ - The approximate pars are listed below.
+ - All holes can be played under par. Some way under par.
+
+Hole | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 |
+---------------------------------------------------
+Par  | 3  | 3  | 6  | 6  | 6  | 8  | 10 | 20 | 10 |
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+Part II - Find and download a big chunk of English text (8000 lines at
+least) from Project Gutenberg:
+
+http://www.gutenberg.org/catalog/
+
+Download the Plain text (us-ascii or Plain Text UTF-8) version.
+
+Determine the letter frequency distribution for that chunk of text
+(convert everything to lowercase).
+
+Determine the 5 most common WORDS in the text with length >= 6 letters
+(ignore case).
+
+Determine the longest word in the text. If there is more than one list
+them all
+
+------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------
+
+Part III - Real or Fake
+
+You are given 5 coded messages (code1.txt ... code5.txt).  The messages
+are coded with a simple character substitution (i.e. x = a, 2 = e, for
+ALL occurrences of "x" and "2" in the message).  Each file has a
+different substitution.  All of the inter-word spaces and punctuation
+have been removed and case is ignored.
+
+Look at the letter frequency distribution of each message and see how
+it compares (in relative numbers) to what you determined in Part II.
+
+Determine which of the 5 coded messages are real messages and which
+ones are decoy messages of garbage (random letters).
+
+------------------------------------------------------------------------
+
+Write your answers to a plain text file (do not use WORD) and name it:
+FirstLast_Words.txt (i.e. TobySmith_Words.txt). Copy this file to the class
+homework directory:
+
+% cp TobySmith_Words.txt ~pikaia/HOMEWORK/
+
+- The 9 patterns for the RegEx Golf
+- Your score for each hole
+- The letter frequency distribution your big chunk of text.
+- 5 most common >= 6 letter word in big chunk of text
+- Longest word(s) in big chunk of text
+- Your explanation of the validity of the coded messages, for example:
+    - code1.txt - random  - your explanation
+     ...
+    - code5.txt - English - your explanation
+
+Your explanation should be your reasoning why you said the text was
+English or garbage.  You should include a line on how confident you
+are on each of your assessments.
+
+
+Deadline: Tuesday Dec 8 - 5pm (-5 pts for each 30 minutes late)
+
+------------------------------------------------------------------------
