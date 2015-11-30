@@ -34,13 +34,13 @@ I have given you 9 holes to play (golf_01 .. golf_09).
  - They get harder as you go on. 
  - Bonus points for the lowest score.
  - The approximate pars are listed below.
- - All holes can be played under par. Some way under par.
+ - All holes can be played under par. Some way under par, some not.
+ - If you are stuck, I have given you some helpful(?) clues in golf_HINTS
 
 Hole | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 |
 ---------------------------------------------------
-Par  | 3  | 3  | 6  | 6  | 6  | 8  | 10 | 20 | 10 |
+Par  | 3  | 3  | 6  | 6  | 6  | 10 | 20 | 22 | 10 |   Total = 86
 
-------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ Download the Plain text (us-ascii or Plain Text UTF-8) version.
 Determine the letter frequency distribution for that chunk of text
 (convert everything to lowercase).
 
-Determine the 5 most common WORDS in the text with length >= 6 letters
+Determine the 5 most common WORDS in the text with length >= 7 letters
 (ignore case).
 
 Determine the longest word in the text. If there is more than one list
@@ -91,7 +91,7 @@ homework directory:
 - The 9 patterns for the RegEx Golf
 - Your score for each hole
 - The letter frequency distribution your big chunk of text.
-- 5 most common >= 6 letter word in big chunk of text
+- The 5 most common >= 7 letter word in big chunk of text
 - Longest word(s) in big chunk of text
 - Your explanation of the validity of the coded messages, for example:
     - code1.txt - random  - your explanation

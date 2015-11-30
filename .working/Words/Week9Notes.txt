@@ -2,8 +2,8 @@
 Week 9 - Messing with words - Regular Expressions, GREP and SED
 
 % cd Astro300
-% wget http://www.astro.washington.edu/smith/Astro300/Wtr2015/Words.tar
-% tar xmfv Words.tar
+% git pull
+% cd Words
 --------------------------------------------------------------------
 
 Print WHOLE line in "file" where 'pattern' occurs:  % grep -E 'pattern' file
