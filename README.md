@@ -1,8 +1,9 @@
 # Astro300
 
-###Introduction to Programming for Astronomical Applications
+## Introduction to Programming for Astronomical Applications
 
-####Supplemental links
+### Supplemental links
+
 ***
 
 #### Week 1 - Sept 30, 2015
